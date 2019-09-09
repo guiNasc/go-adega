@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/guiNasc/go-adega/adega/model"
+	"strconv"
 )
 
 func InitServiceMock() {
@@ -36,6 +37,8 @@ func Get_(id string) []model.Wine {
 }
 
 func Create_(wine model.Wine) model.Wine {
+	model.CountId = model.CountId + 1
+	wine.ID = strconv.Itoa(model.CountId)
 	model.Wines = append(model.Wines, wine)
 	return wine
 }

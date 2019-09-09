@@ -29,17 +29,15 @@ func Get(w http.ResponseWriter, r *http.Request) {
 func Create(w http.ResponseWriter, r *http.Request) {
 	var wine model.Wine
 	_ = json.NewDecoder(r.Body).Decode(&wine)
-	service.Create_(wine)
 	w = setCotentType(w)
-	json.NewEncoder(w).Encode(wine)
+	json.NewEncoder(w).Encode(service.Create_(wine))
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	var id = params["id"]
-	service.Delete_(id)
 	w = setCotentType(w)
-	json.NewEncoder(w).Encode(model.Wines)
+	json.NewEncoder(w).Encode(service.Delete_(id))
 }
 
 func Update(w http.ResponseWriter, r *http.Request) {
