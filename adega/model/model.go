@@ -10,3 +10,5 @@ type Wine struct {
 }
 
 var Wines []Wine
+
+var CountId = 2

@@ -2,17 +2,17 @@ package route
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/guiNasc/go-adega/adega/service"
+	"github.com/guiNasc/go-adega/adega/resource"
 )
 
 func Routes() *mux.Router {
 	router := mux.NewRouter()
-	router.HandleFunc("/wine/{id}", service.Get).Methods("GET")
-	router.HandleFunc("/wine", service.GetAll).Methods("GET")
-	router.HandleFunc("/wine", service.Create).Methods("POST")
-	router.HandleFunc("/wine", service.Update).Methods("PUT")
-	router.HandleFunc("/wine/{id}", service.Delete).Methods("DELETE")
-	router.HandleFunc("/wine/export", service.Export).Methods("POST")
+	router.HandleFunc("/wine/{id}", resource.Get).Methods("GET")
+	router.HandleFunc("/wine", resource.GetAll).Methods("GET")
+	router.HandleFunc("/wine", resource.Create).Methods("POST")
+	router.HandleFunc("/wine", resource.Update).Methods("PUT")
+	router.HandleFunc("/wine/{id}", resource.Delete).Methods("DELETE")
+	router.HandleFunc("/wine/export", resource.Export).Methods("POST")
 	return router
 }
 
